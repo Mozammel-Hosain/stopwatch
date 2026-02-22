@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 startBtn.disabled = true;
                 stopBtn.disabled = false;
                 lapBtn.disabled = false;
+                resetBtn.disabled = false;
             }
             
         })
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 isRunning = false;
                 startBtn.disabled = false;
                 stopBtn.disabled = true;
+                resetBtn.disabled = false;
                 
             }
         })
@@ -84,11 +86,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
         resetBtn.addEventListener('click', function(){
-            if(isRunning){
+            if(isRunning || startTime > 0){
                 clearInterval(timeInterval)
+                isRunning = false;
                 startTime = 0;
                 elapsedTime = 0;    
-                countLap = 0;
                 minutesEl.textContent = '00'
                 secondsEl.textContent = '00';
                 millisecondsEl.textContent = '00';
@@ -96,16 +98,21 @@ document.addEventListener('DOMContentLoaded', function(){
                 startBtn.disabled = false;
                 lapBtn.disabled = true;
                 resetBtn.disabled = true;
+                clearLapFunction()
+                
                
             }
            
 
         })
 
-        clearLap.addEventListener('click', function(){
+
+        function clearLapFunction(){
             lapsList.innerHTML = '';
             countLap = 0;
             lapsContainer.classList.remove('show')
-        })
+        }
+
+        clearLap.addEventListener('click', clearLapFunction())
         
 })
