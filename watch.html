@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Stop watch</title>
+        <link rel="stylesheet" href="style.css">
+        <script src='script.js'></script>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Stopwatch</h1>
+        
+        <div class="display">
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>.
+            <span id="milliseconds" class="milliseconds">00</span>
+        </div>
+
+        <div class="controls">
+            <button class="start" id="startBtn" >Start</button>
+            <button class="stop" id="stopBtn"  disabled>Stop</button>
+            <button class="reset" id="resetBtn" >Reset</button>
+            <button class="lap" id="lapBtn"  disabled>Lap</button>
+        </div>
+
+        <div class="laps-container" id="lapsContainer">
+            <div id="lapsList"></div>
+            <button class="clear-laps">Clear Laps</button>
+        </div>
+    </div>
+    </body>
+</html>
